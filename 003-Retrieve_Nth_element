@@ -1,0 +1,17 @@
+# A given list contains the names of the students in a class, ordered by their mark in the latest exam. Write a piece of code whereby the user delivers a number N as input and learns the name of the student with the Nth highest mark (note: the student with the highest mark is 
+
+lista_de_alunos = ["Haroldo", "Natanael", "Severino", "Gabriel"]  
+try: # Default code to run if no errors crop up
+    N = int(input("Insert 1 to learn who the best-performing student was, 2 to learn the second-performing student, and so on: ")) - 1 # The input is received, converted from string format to integer format, subtracted of 1 unit (so that the usual human ordering of 1, 2, 3 … will be converted to the Python-friendly order of 0, 1, 2 …), and finally assigned to the new "N" variable.
+
+    print(lista_de_alunos[N]) # The element in the list corresponding to the Nth index is retrieved and then printed so that the user can see it and learn the corresponding student's name. 
+
+    # It may be the case that the user will insert some character other than a whole number (for example, the string "First"). In case that happens, an exception-handling block of code must be set aside to be summoned if necessary. Python already posesses a built-in exception, "ValueError", that it raises automatically when an error of this type occurs.
+    
+except ValueError: # If the built-in ValueError exception is raised, give the user some feedback:
+    print("The input you have inserted is not an integer.")
+
+# The class has only 4 students, so, if the user enters "5" to learn who got the fifth highest mark, an error will crop up. An exception-handling block of code must be set aside for this situation:
+
+except IndexError: # If the built-in IndexError exception is raised,
+    print("The number you have inserted is greater than the number of students.")
