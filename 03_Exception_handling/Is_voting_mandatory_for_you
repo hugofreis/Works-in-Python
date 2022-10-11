@@ -1,0 +1,18 @@
+# A function that receives your age as an argument and, based solely on that criterium (disregarding, for example, whether or not you're literate, have legally lost your political rights, or are a Brazilian citizen in the first place) determines if you're subject to mandatory voting under Brazilian law as of 2022.
+
+try: # "The try block contains the part of the code where the exception may come up
+    
+    age = int(input("Type your age: ")) # Gets the input from the user and force-converts it into int, which is then attributed to the newly created "age" variable. This may lead to an error if the input consisted of alphabetic characters, for example, which cannot be converted into int. In this case, Python's built-in ValueError exception will be raised. It will be dealt with in the "except" block:
+
+except ValueError: # Run this block of code if Python's built-in ValueError exception was raised, which will happen if the user has inserted something other than an integer. 
+    
+    age = int(input("Invalid input. Insert your age as an integer in numeric characters.")) # The user will be requested to insert characters again, this time in the proper format.
+
+# If the user stubbornly inserts an input outside of the acceptable format, the program crahes. Otherwise, the code goes on. 
+    
+        
+if (age < 18) | (age >= 65):
+        print("You are not subject to mandatory voting under Brazilian law.")
+
+else: 
+        print("You are subject to mandatory voting under Brazilian law.")
