@@ -1,0 +1,42 @@
+# Escreva um programa que: a) leia um numero que seja o consumo de energia de uma casa; b) calcule a conta de eletricidade de acordo com o critério seguinte:
+
+#    - Primeiros 100 unidades ---- Sem cobrança
+#    - As próximas 100 unidades -- 5 Reais unidade
+#    - Depois de 200 unidades ---- 10 Reais por unidade
+
+# Lembramos que se por exemplo, a conta é 280, às primeiras 100 unidades dessa conta não tem cobrança, as unidades 100 a 200 tem cobrança de 5 reais e as acima de 200 são 10 reais. Elas devem ser somadas ao final para descobrir o valor da conta.
+
+#╔════════════════════════════╗
+#║ FASE 1: Definindo a função ║
+#╚════════════════════════════╝
+
+def cont_energ(cons_energ):
+    
+    # Definindo faixas de consumo de energia e atribuindo valor inicial de zero (nenhum consumo), a ser eventualmente alterado se se verificar algum consumo de energia na faixa correspondente.. 
+    faixa0 = 0 # Faixa de consumo gratuita, correspondente às primeiras 100 unidades
+    faixa1 = 0 # Faixa da 101ª à 200ª unidade, a faturar em R$ 5/un
+    faixa2 = 0 # Faixa da 201ª unidade em diante, a faturar em R$ 10/un
+    
+    if cons_energ <= 100: # Se o consumo for menor ou igual a 100
+        faixa0 = cons_energ # Todo o consumo de energia estará contido dentro da faixa gratuita, de modo que o valor desta será igual ao da totalidade do consumo
+        
+    elif cons_energ > 100: # Se o consumo for maior que 100, mas não maior do que 200,
+        faixa0 = 100 # A faixa gratuita estará sempre inteiramente preenchida. Passemos à determinação das outras faixas.
+                    
+        if cons_energ <= 200: # Ainda com a premissa de que o consumo seja maior que 100, suponhamos que, no entanto, não passe de 200:
+            faixa1 = cons_energ - faixa0 # A faixa 1 será parcialmente preenchida, e com o que quer que supere a faixa gratuita
+        
+        else: # Ainda com a premissa de que o consumo seja maior que 100, suponhamos agora que a restrição acima não se aplique e o consumo ultrapasse, sim, 200:  
+            faixa1 = 100 # A faixa 1 também estará inteiramente preenchida, assim como a faixa gratuita. Passando agora para a faixa residual:
+            faixa2 = cons_energ - faixa1 - faixa0 # A faixa 1 será preenchida com qualquer que seja o consumo excedente que não ficar dentro das faixas iniciais
+         
+    conta_energ = 0*faixa0 + 5*faixa1 + 10*faixa2
+        
+    print("A conta de energia é de R$", float(conta_energ))
+    
+
+#╔═════════════════════════════╗
+#║ FASE 2: Executando a função ║
+#╚═════════════════════════════╝
+cont_energ(201)  
+
