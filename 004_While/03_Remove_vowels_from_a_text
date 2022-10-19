@@ -1,0 +1,24 @@
+# This program asks the user to insert any text as input with his keyboard and prints back the same text, but with the vowels removed.
+
+list_of_vowels = ["a", "A", "e", "E", "i", "I", "o", "O", "u", "U"]
+
+palavras = input("Write the desired text: ")
+
+plvrs_s_vgs = "Here's the text that you had inserted, but with the vowels removed: \n" # plvrs_s_vgs is a string to which we will attach the consonants in the order in which they appeared.
+
+i = 0 # i stands for "index". It represents the relative position of the individual character of the text that is currently under consideration in each iteration. The start value is set to 0 because the first position of any sequence in Python is always represented by the number 0 as an index.
+
+while i < len(palavras): # A loop will be run with one iteration for every character in the input text. When it is detected that there are n characters and it is currently the (n + 1)th iteration, the loop will be abandoned. This will not happen when i == len(palavras), but rather when i == len(palavras) - 1, because we must remember that i begins in 0, so, if there were 20 characters, for example (len(palavras) = 20), i would be 19 for the last one.  
+    
+    if list_of_vowels.count( palavras[i] ) > 0: # Here we are checking if the character currently in consideration is present in the list_of_vowels. We do that by telling the program to count how many times that element appears in the list. If 0, then the character is not a vowel and this block of code can be skipped. Otherwise, the block below must be read.
+        
+        i = i + 1 # This command is merely a repetition of a line of code that appears again below. The reason that we must repeat it here is that, once the "continue" command is executed, everything that comes afterwards within the "while" loop will not be read. Therefore, to make sure that "i = i + 1" will indeed be read, as it must, be must place it here, BEFORE the "continue" command.
+        continue # What this does is 
+
+    plvrs_s_vgs = plvrs_s_vgs + str(palavras[i])
+        
+    i = i + 1 # Consideration is turned to the next character in line
+
+# ── End of the while loop ──
+
+print(plvrs_s_vgs)
