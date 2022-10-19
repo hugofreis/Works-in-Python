@@ -1,0 +1,39 @@
+# In Toronto, Canada, local custom dictates that certain numbers are to be skipped when numbering floors in buildings, in order to take superstition into account and avoid an unnecessary reduction in property value. This function (here named elevator_buttons) receives as input the number of storeys in a given building to be constructed and prints the elevator button numbers that are to be commissioned, in the order that they are to appear on the elevator wall, given a set of contraints imposed by superstition. 
+
+#_____________________________________________________
+# PHASE 1 - DETERMINING THE APPROPRIATE FLOOR NUMBERS
+
+def elevator_buttons(n): # n represents the number of storeys in the building. Note: here the North American custom of floor numbering is applied, meaning that the ground floor is numbered 1.
+
+    f = 0 # The letter f stands for "floor". f represents the floor currently in consideration in each iteration of the loop code. It is assigned the dummy initial value of 0, but in the very first iteration of the code it will be increased to 1, to correspond to the ground floor, following North American convention. 
+
+    list_of_buttons = [] # A list is set up (empty at first) where we will store the elevator numbers that are to be commissioned. 
+
+    while(len(list_of_buttons) < 20): # The loop code below will be run until all 20 floors have already been assigned numbers (e.g. list_of_buttons has already completed 20 elements). 
+        f = f + 1 # Consideration is turned to the next floor in line. In the first iteration of the code, the former dummy value of 0 will be changed to 1, to represent the ground floor.
+        
+        # Checking for taboo violations before actually assigning a floor number
+        if(f == 4): # In Chinese custom, this is the number of death. As a result, any floor carrying this number would lose market value in a place like Toronto, which has a large Chinese expatriate community. If the next official number being considered violates this taboo, it must be discarded.
+            continue # This command is invoked so that the  execution of the "while" loop is suspended during the next iteration. This means that the next would-be official number will go by without being assigned to any physical floor.
+
+    
+        if(f == 13): # Vetoed in Western societies as a number of bad luck. 
+            continue
+    
+        if(f == 14): # Also avoided by elevators in Toronto
+            continue
+    
+        list_of_buttons.append(f) # An official number is assigned to the floor in current consideration
+
+#_____________________________________________________________
+# PHASE 2 - PRINTING THE RESULTING BUTTONS IN DESCENDING ORDER
+    i = len(list_of_buttons) - 1 # i stands for an index in the list "List_of_buttons". The last item in the list has an index equal to the number of items in the list, minus one. Since elevator buttons normally appear in descending order, we will begin by printing the number of the highest floor and end with the number of the ground floor.
+    
+    while i >= 0:
+        print(list_of_buttons[i])
+        i = i - 1
+
+#_______________________________________________________________________
+# PHASE 3 - CALLING THE FUNCTION WITH THE APPROPRIATE NUMBER OF STOREYS
+
+elevator_buttons(20) # Replace "20" with the number of storeys in the building in question
