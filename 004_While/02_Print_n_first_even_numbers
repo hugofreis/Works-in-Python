@@ -1,0 +1,15 @@
+# This function receives as an argument the number n of numbers you want to obtain and prints a list of the n first even whole numbers in existence.
+
+def PrintEvenNums(n):
+
+    listofnums = []
+    
+    num = 0 If you wished instead to print the x first odd whole numbers, all you would have to change in the code would be to change this starting value of "num" from 0 to 1.
+    
+    while( len(listofnums) < n):
+       listofnums.append(num)
+       num = num + 2
+    
+    print(listofnums)
+
+PrintEvenNums(10)
