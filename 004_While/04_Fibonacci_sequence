@@ -1,0 +1,14 @@
+# The Fibonacci sequence is a sequence of numbers where each succeeding number is the sum of the last two. By convention, the Fibonacci sequence starts with 0 and 1. The function below receives a whole number n as an argument and returns a list containing the n first numbers of the Fibonacci sequence.
+
+def Fibonaccis(n):
+    
+    fib_seq = [0, 1] # A list is created to store the Fibonnaci numbers in order. As explained, it starts off with 0 and 1.
+
+    i = 2 # The counter variable *i* will begin at 2, because the first two numbers in the Fibonacci sequence, here to be represented by their indexes in the list — 0 and 1 — are predetermined by nature. If i is currently 2, that means we will now dedicate ourselves to the third item in the list: 
+
+    while i < n: # The loop will run up until the nth number (represented by i = n-1 ), after which point it will stop.
+        new_num = fib_seq[i-2] + fib_seq[i-1] # The numbers that occupy the two preceding positions in the list are summed and the resulting value is attributed to the newly created variable "new_num"
+        fib_seq.append(new_num) # The newly calculater number is now added to the list at the end.
+        i += 1 # The counter is increased in 1 unit so that we now turn to the next item
+
+    return fib_seq
