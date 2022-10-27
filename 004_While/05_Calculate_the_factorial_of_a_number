@@ -1,0 +1,15 @@
+# The factorial of a positive integer numnber is the result of the multiplication of this number by all of the preceding smaller integers, down until 1. Conversely, the factorial of 0 is 1. 
+
+# This function receives an integer as an argument and returns its factorial.
+
+def GiveMeTheFactorial(n):
+
+    i = 1 # Counter variable set to start as 1
+
+    f = 1 # f stands for "factorial" and its initial value is set as 1, both because this is a neutral value in multiplication and because it will stand as a residual value to be returned in case the user enters the number 0, whose factorial is 1. 
+
+    while i <= n: # The loop will run until the number typed by the user is reached, after which point the loop will stop. Note that, since i was set as 1 from the start, if the user enters zero, the condition i <= 0 will always be false, in which case the standard value of f as 1 will be returned at the end of the code.
+        f = f * i
+        i = i + 1 # The counter is increased so that the loop moves on to the next number in line.
+    
+    return f
