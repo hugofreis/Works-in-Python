@@ -1,0 +1,45 @@
+# A function that receives as an argument two integers, which are to serve as the first and final in a range of numbers to be calculated. The function then sorts the even and odd numbers within the range.
+
+def SortEvenOdd(a, b):
+
+
+    lista_nums = [] # We begin by creating three lists, initially empty, to include all numnbers within the range, the even numbers, and the odd numbers, respectively.
+    pares = []
+    impares = [] 
+
+    # ╔═════════════════════════╗
+    # ║ 1) lAYING OUT THE RANGE ║
+    # ╚═════════════════════════╝
+    # Now we will append to the "lista_nums" list, sucessively, each of the numbers contained in the interval provided by the user.
+
+    for i in range(a, b+1): # b must be added 1 unit because, by default, the second number provided as an argument to the "range" function is not included within the range, and we do want to include the number provided by the user, so we must instruct the function to stop at the first number after that.
+        lista_nums.append(i)
+
+    # ╔═════════════════════════════════════╗
+    # ║ 2) GETTING THE ODD AND EVEN NUMBERS ║
+    # ╚═════════════════════════════════════╝    
+    for i in range( len(lista_nums) ): # Now the range of numbers is laid out in lista_nums and each number there can be accessed via an index, ranging from 0 to n, n being equal to the number of items minus 1. The number of items is obtained by applying the len() function to lista_nums. It is not necessary to subtract 1 here, because the range() function does that on its own, since, by design, it excludes the final index from the range ("up until, not including"). 
+        if lista_nums[i] % 2 == 0: # Condition: if the number currently in consideration within the list, when divided by 2, renders a mathematical remainder of 0. This is the definition of an even number.
+            pares.append( lista_nums[i] ) 
+            
+            
+        else: # If the condition is not met, that means that the number is odd, so it must be assigned to the corresponding list:
+            impares.append( lista_nums[i] )
+        
+    # ╔═════════════════════════╗
+    # ║ 3) PRINTING THE RESULTS ║
+    # ╚═════════════════════════╝
+   
+    
+    # ┌─────────────────────────────────────────────────────────────┐
+    # │ 3.1 PRINTING THE LIST OF NUMBERS IN THE RANGE AND THEIR SUM │
+    # └─────────────────────────────────────────────────────────────┘    
+    print("The list of numbers lying within and including the two you have provided is:", lista_nums) 
+    
+    
+    # ┌────────────────────────────────────────────────────┐
+    # │ 3.2 PRINTING THE EVEN AND ODD NUMBERS IN THE RANGE │
+    # └────────────────────────────────────────────────────┘  
+
+    print("The list of even numbers provided is:", pares)
+    print("The list of odd numbers provided is:", impares)
