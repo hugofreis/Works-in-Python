@@ -1,0 +1,43 @@
+# This function receives a list as an argument, as well as the boolean variable True, if the user wants to use the Oxford comma, or False, if he does not. The function prints a sentence following the grammatical and spelling rules of the English language according to the specifications.
+
+def PrintListInSentence(L, oxfordcommaTorF): # L stands for list
+    
+    
+    # We will print the items successively; to print them all on the same line, preventing Python from linebreaking, we will often use the sintax end = separator, to replace the Python standard separator after the print function, which is "\n" (linebreak symbol).
+
+    
+    # ____________________________________
+    # 3.2.1 IF ONLY ONE ITEM EXISTS
+    if len(L) == 1: 
+        print("The item is:", L[0], end = ".\n") # The final item is always to be marked with a full stop and a line break.
+    
+    # ____________________________________
+    # 3.2.1 IF ONLY TWO ITEMS EXIST    
+    
+    elif len(L) == 2:     
+        print("The items are:", L[0], "and", L[1], end = ".\n")
+    
+    # ____________________________________
+    # 3.2.1 IF THREE OR MORE ITEMS EXIST 
+    
+    else: # If, on the other hand, there are two or more even numbers:    
+        
+        
+        print("The items are:", end = " ") # Adding end = " " at the end makes it so that there is no line break as a separator.
+        
+        # PRINTING THE FIRST ITEMS SAVE THE LAST ONE AND THE NEXT-TO-LAST ONE, which are always to be followed by a comma. 
+        
+        for i in range( len(L) - 2 ): # range(len(pares) - 2) means that the loop will go until the second-to-last item, then stop. The remaining items will be dealt with later. 
+            print(L[i], end = ", ")
+        
+        # PRINTING THE NEXT-TO-LAST ITEM: Whether or not this includes a comma will depend on whether the user has chosen the Oxford comma:
+        
+        if oxfordcommaTorF == True:
+            print( L[-2], end = ", " ) # Just as before. Note that L[-2] means the item on the list represented by index -2, which, in Python, is the next-to-last. 
+        
+        elif oxfordcommaTorF == False:
+            print( L[-2], end = " " ) # Now comma.
+            
+            # Now the final number in the list, represented by L[-1]. It will always be preceded by "and" and followed by a full stop and line break, regardless of whether or not it was preceded by an Oxford comma.
+        
+        print("and",  L[-1], end = ".\n" ) 
