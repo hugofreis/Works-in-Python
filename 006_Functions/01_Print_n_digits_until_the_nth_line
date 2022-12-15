@@ -1,0 +1,13 @@
+# This function takes a number n as input and returns a printed triangle of text where each line of text consists in a whole number, repeated as many times as the number itself, with the triangle going as far as the number n given as input.
+
+def print_to_nth(n):
+    x = 1; # The variable x represents at once the number that will appear on each line of the triangle and the numbers of numbers that will appear on that line. x is first set to the initial value of 1 and will grow at each line.
+        
+    for i in range(n): # Each iteration of this for loop will correspond to one line of text printed. The loop will keep running to add more lines until reaching the number n given by the user; the Nth line will be printed and then the loop will stop.
+        
+        for j in range(x): # Each iteration of this loop-within-a-loop will print a new digit within the same line. Therefore, the loop must run as many times as the number being printed itself; e.g.: the number 3 will be printed 3 times, the number 4 will be printed 4 times, etc.
+            print(x, end = " ") # The "end" command must be invoked so that it is known that we do not want to end the iteration with a line break; instead, we'll end the iteration by adding a space to the right of the digit printed, to set it apart from the number to its right.
+            
+        print("\n") # At this point, the line that was just printed will be finished and it will be time to move to the line below, so a line break is added.
+        
+        x += 1 # The variable x is increased to one, so that the next line will be printed with the number immediately following the one used on the preceding line
